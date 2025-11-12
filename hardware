@@ -1,0 +1,19 @@
+Here’s the breakdown of components and their costs in a tabular format for building the Arduino GPS tracker:
+
+| **Component**               | **Quantity** | **Estimated Cost USD (INR)** | **Purpose**                    |
+| --------------------------- | ------------ | ---------------------------- | ------------------------------ |
+| **Arduino Uno R3 DIP**      | 1            | $8-12 (Rs. 650)              | Main microcontroller board     |
+| **SIM800L GSM Module**      | 1            | $2-5 (Rs. 220)               | 2G cellular communication      |
+| **NEO-6M GPS Module**       | 1            | $2-5 (Rs. 220)               | GPS receiver for location data |
+| **Breadboard**              | 1            | <$1 (Rs. 50)                 | Prototype circuit connections  |
+| **Resistors (4.7kΩ, 10kΩ)** | 2            | <$1 (Rs. 20)                 | Voltage divider for SIM800L    |
+| **Jumper Wires**            | As required  | <$1 (Rs. 20)                 | Connect components             |
+
+### Additional Requirements:
+
+* **SIM Card (2G-compatible)**: $5-10/month
+
+  * **Networks**: Airtel, Vodafone, BSNL (for India) - JIO and other 4G/5G networks **will not work** with the SIM800L GSM module.
+* **Power Bank**: For portable operation.
+* **12V to 5V Converter**: For permanent installations (e.g., in vehicles).
+
