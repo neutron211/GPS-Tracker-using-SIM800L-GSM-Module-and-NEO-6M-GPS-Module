@@ -1,2 +1,33 @@
-The Arduino GPS tracker circuit connects three main components: Arduino UNO R3, NEO-6M GPS module, and SIM800L GSM module. This design uses both hardware and software serial communication since Arduino UNO has only one hardware serial port. Follow the diagram below for proper connections.
+Arduino GPS Tracker Circuit Diagram :
 
+
+The Arduino GPS tracker circuit connects three main components: Arduino UNO R3, NEO-6M GPS module, and SIM800L GSM module. 
+This design uses both hardware and software serial communication since Arduino UNO has only one hardware serial port. Follow the diagram below for proper connections.
+
+Neo-6M GPS Module Connections 
+The NEO-6M GPS module requires only three connections to the Arduino. This module continuously sends location data that the Arduino reads and processes for our GPS tracking system. If you are completely new to the NEO-6 M GPS module, I will definitely recommend that you check out our NEO-6M Arduino Tutorial to understand the basics of how this GPS module works. 
+
+| **Module**             | **Module Pin** | **Arduino UNO Pin**               | **Description / Notes**                                                                   |
+| ---------------------- | -------------- | --------------------------------- | ----------------------------------------------------------------------------------------- |
+| **NEO-6M GPS Module**  | VCC            | 5V                                | Power supply (most NEO-6M modules have onboard 3.3V regulator, so 5V is safe).            |
+|                        | GND            | GND                               | Common ground between GPS and Arduino.                                                    |
+|                        | TX             | Pin 0 (RX)                        | GPS transmits serial data (NMEA sentences) to Arduino’s RX pin.                           |
+|                        | RX             | Not connected                     | Usually not needed — Arduino doesn’t send commands to GPS.                                |
+| **SIM800L GSM Module** | VCC            | External 4V (not from Arduino 5V) | Requires 3.7–4.2 V and at least 2 A current; use Li-ion battery or separate power supply. |
+|                        | GND            | GND                               | Common ground with Arduino and GPS module.                                                |
+|                        | TX             | Pin 7                             | SIM800L transmits data to Arduino (Arduino RX).                                           |
+|                        | RX             | Pin 8 (through voltage divider    |                                                                                           |
+
+SIM800L GSM Module Connections (Requires Level Shifting)
+The SIM800L module needs special attention because it operates at 3.3V logic levels while Arduino uses 5V. We need a voltage divider circuit to protect the SIM800L from damage. If you are new to the SIM800L GSM module, check out our Arduino SIM800L tutorial to understand the basics of this module and how to use it with Arduino. 
+
+Important: Power the SIM800L through a diode from Arduino's 5V pin when using a power bank for adequate current supply.
+
+| **SIM800L Pin**                   | **Arduino Pin**                 | **Connection Details / Notes**                                                                                               |
+| --------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **VCC**                           | **5V (via Diode)**              | Use a **1N4007 or 1N5819 diode** in series from Arduino 5V to drop voltage to ~4.3V. Ensure power source can supply **≥2A**. |
+| **GND**                           | **GND**                         | Common ground between Arduino and SIM800L.                                                                                   |
+| **RX**                            | **Pin 8 (via Voltage Divider)** | Arduino TX → SIM800L RX through a **voltage divider** (e.g., 10kΩ + 20kΩ) to reduce 5V signal to ~3.3V.                      |
+| **TX**                            | **Pin 9**                       | SIM800L TX → Arduino RX (3.3V logic is readable by Arduino).                                                                 |
+| **Antenna**                       | —                               | Attach an external GSM antenna before powering on.                                                                           |
+| **Power Capacitor (Recommended)** | —                               | Place a **1000 µF (≥6.3V)** capacitor between VCC and GND near the module to handle current surges.                          |
