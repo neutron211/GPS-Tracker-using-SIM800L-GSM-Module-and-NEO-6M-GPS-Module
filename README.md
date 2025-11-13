@@ -13,6 +13,7 @@ SIM800L GSM Module: Enables communication via a 2G cellular network, allowing th
 The tracker can be connected to a platform like GeoLinker, which displays the real-time location data on a web-based dashboard, providing a visual map of the device's position. This setup is ideal for applications such as vehicle tracking, pet monitoring, personal safety, or asset tracking. With an additional 2G SIM card and a data plan, users can access live tracking features, historical movement data, and even set up geofencing alerts for added security.
 In addition to being easy to build with affordable components (totaling around $25-$35), the system can be expanded with additional features like battery monitoring, geofencing, and SMS notifications for enhanced functionality. This makes the Arduino GPS tracker both a great educational project and a practical tool for real-world use.
 
+📋 Quick Setup
 | **Step**               | **Description**                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------- |
 | **1. Install Library** | Open Arduino IDE → Go to **Library Manager** → Search **"GeoLinker Lite"** → Click **Install**. |
@@ -20,7 +21,7 @@ In addition to being easy to build with affordable components (totaling around $
 | **3. Configure Code**  | Edit the sketch to set **APN**, **API Key**, and **Device ID**.                                 |
 | **4. Upload & Run**    | Upload the code, then power the system using an **external power source** (recommended).        |
 
-
+🔌 Key Connections
 | **Component**     | **Arduino Pin** | **Connection Details / Notes**                             |
 | ----------------- | --------------- | ---------------------------------------------------------- |
 | **GPS TX**        | **Pin 0 (RX)**  | Disconnect during upload to avoid serial conflict.         |
